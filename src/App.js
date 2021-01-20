@@ -1,5 +1,7 @@
 import logo from './logo.svg';
 import { css } from 'linaria';
+import theme from '@clad-ui/theme';
+import { Button } from 'clad-ui';
 
 const appClass = css`
   text-align: center;
@@ -16,7 +18,7 @@ const appClass = css`
   }
 
   .App-header {
-    background-color: #282c34;
+    background-color: ${theme.colors.black};
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -27,7 +29,10 @@ const appClass = css`
   }
 
   .App-link {
-    color: #61dafb;
+    color: ${theme.colors.link};
+    :hover {
+      color: ${theme.colors.linkHover};
+    }
   }
 
   @keyframes App-logo-spin {
@@ -56,6 +61,9 @@ function App() {
         >
           Learn React
         </a>
+        <Button as="a" href="https://chotot.com">
+          Visit Chotot
+        </Button>
       </header>
     </div>
   );
