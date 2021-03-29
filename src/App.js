@@ -1,10 +1,16 @@
-import logo from './logo.svg';
+import React from 'react';
 import { css } from 'linaria';
 import theme from '@clad-ui/theme';
 import { Button } from 'clad-ui';
+import { sx } from 'clad-ui/utils';
+
+import logo from './logo.svg';
 
 const appClass = css`
   text-align: center;
+  ${sx({
+    padding: 20,
+  })}
 
   .App-logo {
     height: 40vmin;
@@ -45,7 +51,9 @@ const appClass = css`
   }
 `;
 
-function App() {
+const App = () => {
+  console.log(theme.colors.primary);
+
   return (
     <div className={appClass}>
       <header className="App-header">
@@ -67,6 +75,6 @@ function App() {
       </header>
     </div>
   );
-}
+};
 
 export default App;

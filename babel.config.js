@@ -36,7 +36,6 @@ module.exports = (api) => {
       [
         'module-resolver',
         {
-          root: ['.'],
           alias: {
             '~': './src',
             // change alias target to change the theme

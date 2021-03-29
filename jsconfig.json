@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "outDir": ".",
+    "baseUrl": ".",
+    "checkJs": true,
+    "jsx": "react",
+    "noImplicitAny": false,
+    "resolveJsonModule": true,
+    "skipDefaultLibCheck": true,
+    "skipLibCheck": true,
+    "lib": ["es2017", "dom"],
+    "paths": {
+      "url": ["node_modules/@types/node/url.d.ts"],
+      "events": ["node_modules/@types/node/events.d.ts"],
+      "@clad-ui/theme": ["./src/theme.js"]
+    }
+  },
+  "file": [
+    "./index.js"
+  ],
+  "exclude": [
+    
+  ]
+}

@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import 'clad-ui/shared/global';
+import 'clad-ui/css/baseline';
 import './index.styles';
 import App from '~/App';
-import reportWebVitals from '~/reportWebVitals';
+import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>

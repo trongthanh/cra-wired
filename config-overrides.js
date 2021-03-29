@@ -4,17 +4,33 @@ const {
   addWebpackModuleRule,
   removeModuleScopePlugin,
   useBabelRc,
+  disableEsLint,
 } = require('customize-cra');
+
+function findBabel(rules) {
+  return rules.filter((rule) => {
+    return rule.loader && rule.loader.includes('babel');
+  });
+}
 
 module.exports = {
   webpack: override(
+    disableEsLint(),
     // eslint-disable-next-line react-hooks/rules-of-hooks
     useBabelRc(),
+    removeModuleScopePlugin(),
     (config) => {
-      console.log(config.module.rules[1].oneOf[2]);
+      // console.log(config.module.rules[1].oneOf[2]);
+      const babelLoaders = findBabel(config.module.rules[1].oneOf);
+      babelLoaders.forEach((loader) => {
+        console.log('loader', JSON.stringify(loader, null, 2));
+      });
+      // disable eslint (for react-scripts@4)
+      config.plugins = config.plugins.filter(
+        (plugin) => plugin.constructor.name !== 'ESLintWebpackPlugin',
+      );
       return config;
     },
-    removeModuleScopePlugin(),
     // turn on to transpile node_modules/clad-ui
     addWebpackModuleRule({
       test: /\.(js|jsx)$/,
